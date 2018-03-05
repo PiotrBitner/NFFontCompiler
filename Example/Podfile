@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NFFontCompiler_Example' do
+  pod 'NFFontCompiler', :path => '../'
+
+  target 'NFFontCompiler_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
