@@ -1,0 +1,6 @@
+framework module NFFontCompiler {
+  umbrella header "NFFontCompiler-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - NFFontCompiler (0.1.0)
+
+DEPENDENCIES:
+  - NFFontCompiler (from `../`)
+
+EXTERNAL SOURCES:
+  NFFontCompiler:
+    :path: ../
+
+SPEC CHECKSUMS:
+  NFFontCompiler: 284a718a1cadaed2f1fdd4fe9a0a55b8d8f9660e
+
+PODFILE CHECKSUM: f666b21dd1d2674dc2e626afd3d6cbce07b6b382
+
+COCOAPODS: 1.4.0
