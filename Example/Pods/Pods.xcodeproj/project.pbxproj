@@ -16,10 +16,8 @@
 		42CAF1EB204D58B000048C01 /* NFElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D0204D58AE00048C01 /* NFElement.swift */; };
 		42CAF1EC204D58B000048C01 /* NFFontElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D1204D58AE00048C01 /* NFFontElement.swift */; };
 		42CAF1ED204D58B000048C01 /* NFEditableFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D2204D58AE00048C01 /* NFEditableFont.swift */; };
-		42CAF1EE204D58B000048C01 /* NFSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D3204D58AE00048C01 /* NFSignature.swift */; };
 		42CAF1EF204D58B000048C01 /* NFCompiledFontFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D4204D58AE00048C01 /* NFCompiledFontFile.swift */; };
 		42CAF1F1204D58B000048C01 /* NFColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D6204D58AE00048C01 /* NFColor.swift */; };
-		42CAF1F3204D58B000048C01 /* NFLinesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D8204D58AF00048C01 /* NFLinesCache.swift */; };
 		42CAF1F4204D58B000048C01 /* NFFontData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1D9204D58AF00048C01 /* NFFontData.swift */; };
 		42CAF1F5204D58B000048C01 /* NFVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1DA204D58AF00048C01 /* NFVariants.swift */; };
 		42CAF1F7204D58B000048C01 /* NFChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAF1DC204D58AF00048C01 /* NFChannels.swift */; };
@@ -61,10 +59,8 @@
 		42CAF1D0204D58AE00048C01 /* NFElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFElement.swift; path = NFFontCompiler/Classes/NFElement.swift; sourceTree = "<group>"; };
 		42CAF1D1204D58AE00048C01 /* NFFontElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFFontElement.swift; path = NFFontCompiler/Classes/NFFontElement.swift; sourceTree = "<group>"; };
 		42CAF1D2204D58AE00048C01 /* NFEditableFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFEditableFont.swift; path = NFFontCompiler/Classes/NFEditableFont.swift; sourceTree = "<group>"; };
-		42CAF1D3204D58AE00048C01 /* NFSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFSignature.swift; path = NFFontCompiler/Classes/NFSignature.swift; sourceTree = "<group>"; };
 		42CAF1D4204D58AE00048C01 /* NFCompiledFontFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFCompiledFontFile.swift; path = NFFontCompiler/Classes/NFCompiledFontFile.swift; sourceTree = "<group>"; };
 		42CAF1D6204D58AE00048C01 /* NFColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFColor.swift; path = NFFontCompiler/Classes/NFColor.swift; sourceTree = "<group>"; };
-		42CAF1D8204D58AF00048C01 /* NFLinesCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFLinesCache.swift; path = NFFontCompiler/Classes/NFLinesCache.swift; sourceTree = "<group>"; };
 		42CAF1D9204D58AF00048C01 /* NFFontData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFFontData.swift; path = NFFontCompiler/Classes/NFFontData.swift; sourceTree = "<group>"; };
 		42CAF1DA204D58AF00048C01 /* NFVariants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFVariants.swift; path = NFFontCompiler/Classes/NFVariants.swift; sourceTree = "<group>"; };
 		42CAF1DC204D58AF00048C01 /* NFChannels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFChannels.swift; path = NFFontCompiler/Classes/NFChannels.swift; sourceTree = "<group>"; };
@@ -260,11 +256,9 @@
 				42CAF1CD204D58AE00048C01 /* NFFont.swift */,
 				42CAF1D9204D58AF00048C01 /* NFFontData.swift */,
 				42CAF1D1204D58AE00048C01 /* NFFontElement.swift */,
-				42CAF1D8204D58AF00048C01 /* NFLinesCache.swift */,
 				42CAF1E1204D58AF00048C01 /* NFNib.swift */,
 				42CAF1E7204D58B000048C01 /* NFRandomizer.swift */,
 				42CAF1E0204D58AF00048C01 /* NFShape.swift */,
-				42CAF1D3204D58AE00048C01 /* NFSignature.swift */,
 				42CAF1DD204D58AF00048C01 /* NFSimpleNib.swift */,
 				42CAF1DA204D58AF00048C01 /* NFVariants.swift */,
 				5420C1FF21053ED27F1C609D2EAE482B /* Pod */,
@@ -392,14 +386,12 @@
 				0327CAB821BFF0C4003A38FF333263BB /* NFFontCompiler-dummy.m in Sources */,
 				42CAF1FD204D58B000048C01 /* NFDataLibrary.swift in Sources */,
 				42CAF1F4204D58B000048C01 /* NFFontData.swift in Sources */,
-				42CAF1EE204D58B000048C01 /* NFSignature.swift in Sources */,
 				42CAF1FE204D58B000048C01 /* NFFontCompiler.swift in Sources */,
 				42CAF1EB204D58B000048C01 /* NFElement.swift in Sources */,
 				42CAF1EC204D58B000048C01 /* NFFontElement.swift in Sources */,
 				42CAF1FC204D58B000048C01 /* NFNib.swift in Sources */,
 				42CAF1F5204D58B000048C01 /* NFVariants.swift in Sources */,
 				42CAF200204D58B000048C01 /* NFCompiledFont.swift in Sources */,
-				42CAF1F3204D58B000048C01 /* NFLinesCache.swift in Sources */,
 				42CAF1EF204D58B000048C01 /* NFCompiledFontFile.swift in Sources */,
 				42CAF202204D58B000048C01 /* NFRandomizer.swift in Sources */,
 				42CAF1F8204D58B000048C01 /* NFSimpleNib.swift in Sources */,

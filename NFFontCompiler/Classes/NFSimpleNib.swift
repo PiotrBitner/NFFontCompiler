@@ -20,6 +20,9 @@ public class NFSimpleNib: NSObject, NSCoding {
         }
     }
     
+    // from element
+
+    // from element
     public var rect: CGRect = defaultRect
     
     public init(size: CGFloat, nibType: NFStandardTip?, image: CGImage? = nil) {
@@ -61,6 +64,6 @@ public class NFSimpleNib: NSObject, NSCoding {
     public func shapePath()-> CGPath? {
         return self.nibType?.type.shape(rect)
     }
-  
 
 }
+
