@@ -11,91 +11,6 @@ public typealias NFCompiledLines =  [UInt16 : NFVerticalLayer]
 public typealias NFCompliedElement = [UInt16 : NFElementsWithWidth]
 
 
-public class NFElementData: NSObject, NSCoding {
-    
-    init(code:UInt16, origin: CGPoint) {
-        self.code = code
-        self.origin = origin
-    }
-    
-    var code: UInt16
-    var origin: CGPoint
-    
-    enum CodingKeys: String, CodingKey {
-        case code
-        case origin
-    }
-    
-    public func encode(with aCoder: NSCoder) {
-        aCoder.encode( Int32(code), forKey: CodingKeys.code.rawValue)
-        aCoder.encode(origin, forKey: CodingKeys.origin.rawValue)
-    }
-    
-    public convenience required init?(coder aDecoder: NSCoder) {
-        let code = aDecoder.decodeInt32(forKey: CodingKeys.code.rawValue)
-        let origin = aDecoder.decodeCGPoint(forKey: CodingKeys.origin.rawValue) as! CGPoint
-        
-        self.init(code: UInt16(code), origin: origin)
-    }
-}
-
-public class NFVerticalLayer: NSObject, NSCoding{
-    
-    init(vertical: Bool, layer: CALayer) {
-        self.vertical = vertical
-        self.layer = layer
-    }
-    
-    var vertical: Bool
-    var layer: CALayer
-    
-    enum CodingKeys: String, CodingKey {
-        case vertical
-        case layer
-    }
-    
-    public func encode(with aCoder: NSCoder) {
-        aCoder.encode(vertical, forKey: CodingKeys.vertical.rawValue)
-        aCoder.encode(layer, forKey: CodingKeys.layer.rawValue)
-    }
-    
-    public convenience required init?(coder aDecoder: NSCoder) {
-        let vertical = aDecoder.decodeBool(forKey: CodingKeys.vertical.rawValue)
-        let layer = aDecoder.decodeObject(forKey: CodingKeys.layer.rawValue) as! CALayer
-     
-        self.init(vertical: vertical, layer: layer)
-    }
-    
-}
-
-public class NFElementsWithWidth: NSObject, NSCoding {
-    
-    init(width: CGFloat, elements: [NFElementData]) {
-        self.width = width
-        self.elements = elements
-    }
-    
-    var width: CGFloat
-    var elements: [NFElementData]
-    
-    enum CodingKeys: String, CodingKey {
-        case width
-        case elements
-    }
-    
-    public func encode(with aCoder: NSCoder) {
-        aCoder.encode( Float(width), forKey: CodingKeys.width.rawValue)
-        aCoder.encode(elements, forKey: CodingKeys.elements.rawValue)
-    }
-    
-    public convenience required init?(coder aDecoder: NSCoder) {
-        let width = aDecoder.decodeFloat(forKey: CodingKeys.width.rawValue)
-        let elements = aDecoder.decodeObject(forKey: CodingKeys.elements.rawValue) as! [NFElementData]
-        
-        self.init(width: CGFloat(width), elements: elements)
-    }
-}
-
 public class NFCompiledFont: NSObject, NSCoding {
     
     public override init() {}
@@ -150,4 +65,90 @@ public class NFCompiledFont: NSObject, NSCoding {
         self.init(overview: overview, nibs: nibs, lines: lines, glyphs: glyphs, signs: signs)
     }
     
+}
+
+
+public class NFElementData: NSObject, NSCoding {
+    
+    init(code:UInt16, origin: CGPoint) {
+        self.code = code
+        self.origin = origin
+    }
+    
+    var code: UInt16
+    var origin: CGPoint
+    
+    enum CodingKeys: String, CodingKey {
+        case code
+        case origin
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode( Int32(code), forKey: CodingKeys.code.rawValue)
+        aCoder.encode(origin, forKey: CodingKeys.origin.rawValue)
+    }
+    
+    public convenience required init?(coder aDecoder: NSCoder) {
+        let code = aDecoder.decodeInt32(forKey: CodingKeys.code.rawValue)
+        let origin = aDecoder.decodeCGPoint(forKey: CodingKeys.origin.rawValue) as! CGPoint
+        
+        self.init(code: UInt16(code), origin: origin)
+    }
+}
+
+public class NFVerticalLayer: NSObject, NSCoding{
+    
+    init(vertical: Bool, layer: CALayer) {
+        self.vertical = vertical
+        self.layer = layer
+    }
+    
+    var vertical: Bool
+    var layer: CALayer
+    
+    enum CodingKeys: String, CodingKey {
+        case vertical
+        case layer
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(vertical, forKey: CodingKeys.vertical.rawValue)
+        aCoder.encode(layer, forKey: CodingKeys.layer.rawValue)
+    }
+    
+    public convenience required init?(coder aDecoder: NSCoder) {
+        let vertical = aDecoder.decodeBool(forKey: CodingKeys.vertical.rawValue)
+        let layer = aDecoder.decodeObject(forKey: CodingKeys.layer.rawValue) as! CALayer
+        
+        self.init(vertical: vertical, layer: layer)
+    }
+    
+}
+
+public class NFElementsWithWidth: NSObject, NSCoding {
+    
+    init(width: CGFloat, elements: [NFElementData]) {
+        self.width = width
+        self.elements = elements
+    }
+    
+    var width: CGFloat
+    var elements: [NFElementData]
+    
+    enum CodingKeys: String, CodingKey {
+        case width
+        case elements
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode( Float(width), forKey: CodingKeys.width.rawValue)
+        aCoder.encode(elements, forKey: CodingKeys.elements.rawValue)
+    }
+    
+    public convenience required init?(coder aDecoder: NSCoder) {
+        let width = aDecoder.decodeFloat(forKey: CodingKeys.width.rawValue)
+        let elements = aDecoder.decodeObject(forKey: CodingKeys.elements.rawValue) as! [NFElementData]
+        
+        self.init(width: CGFloat(width), elements: elements)
+    }
 }

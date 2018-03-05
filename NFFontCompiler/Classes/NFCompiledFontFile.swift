@@ -30,6 +30,9 @@ public class NFCompiledFontFile {
     public static func read(fontName:String) -> NFCompiledFont? {
         var compiledFont: NFCompiledFont?
         if let fileURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(fontName).appendingPathExtension("onfc") {
+            
+            print("fileURL.path: \(fileURL.path)")
+            
             compiledFont = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path) as? NFCompiledFont
         }
         return compiledFont

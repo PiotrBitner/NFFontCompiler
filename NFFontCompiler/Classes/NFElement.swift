@@ -305,25 +305,6 @@ extension NFElement {
         return rootLayer
     }
     
-    func applyTip(layer: CAShapeLayer) {
-        
-        guard let tip = self.nib else {return}
-        CATransaction.setDisableActions(true)
-        layer.bounds = tip.rect
-        layer.path = nil
-        layer.contents = nil
-        
-        if let shape = tip.shapePath() {
-            layer.path = shape }
-        if let image = tip.contentImage {
-            layer.contentsGravity = kCAGravityResizeAspectFill // kCAGravityCenter
-            layer.contents = image
-        }
-        
-        CATransaction.commit()
-        
-    }
-   
     
     func moveAndRotate(rootLayer: CALayer) {
  

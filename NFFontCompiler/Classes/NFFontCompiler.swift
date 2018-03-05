@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias NFJSON = [String:AnyObject]
+
 public class NFFontCompiler {
     
     var font: NFFont
@@ -14,6 +16,23 @@ public class NFFontCompiler {
     public init(font: NFFont) {
         self.font = font
     }
+    
+  
+    
+    public static func parse(data: NFFontData) -> NFFont {
+        return NFFont(fontData: data)
+    }
+    
+    public static func parse(nfjson: NFJSON) -> NFFontData? {
+        var fontData: NFFontData?
+        DispatchQueue.global().sync {
+            let jsonData: Data = try! JSONSerialization.data(withJSONObject: nfjson)
+            let jsonDecoder = JSONDecoder()
+            fontData = try? jsonDecoder.decode( NFFontData.self, from: jsonData)
+        }
+        return fontData
+    }
+    
     
     let variants: NFVariants = NFVariants()
     
@@ -87,7 +106,7 @@ public class NFFontCompiler {
         var elementsData: [NFElementData] = []
         var elementData: NFElementData
         for index in 0..<codes.count {
-            elementData =   NFElementData(code: codes[index], origin: CGPoint(x: origins[index].x, y: origins[index].y))   //      (code: codes[index], origin: CGPoint(x: origins[index].x, y: origins[index].y))
+            elementData =   NFElementData(code: codes[index], origin: CGPoint(x: origins[index].x, y: origins[index].y))
             elementsData.append(elementData)
         }
         
@@ -100,7 +119,6 @@ public class NFFontCompiler {
         
         let linesLibrary = font.linesLibrary
         let elements = linesLibrary.elements
-        let nib = getNib(size: defaultCharacterSize, nibType: variants.standardTip, image: nil)
         
         for elementData in elements {
             
@@ -112,7 +130,6 @@ public class NFFontCompiler {
             lineElement.font = font
             lineElement.variants = variants
             lineElement.fontColors = font.fontColors
-            lineElement.nib = nib
             
             let signModel = lineElement.createModel()
             lines[elementData.code] = NFVerticalLayer(vertical: (elementData as! NFLineData).vertical ?? false, layer: signModel)
@@ -122,17 +139,4 @@ public class NFFontCompiler {
         
     }
     
-    func getNib( size: CGFloat, nibType: NFStandardTip?, image: CGImage?, element: NFElement? = nil) -> NFNib? {
-        
-        var nib: NFNib?
-        
-        if element != nil {
-            
-        } else {
-            nib = NFNib(size: size, nibType: nibType?.type, image: image)
-        }
-        
-        return nib
-        
-    }
 }

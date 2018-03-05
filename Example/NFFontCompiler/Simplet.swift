@@ -7,13 +7,13 @@
 
 // ver. 1.0, 23/02/2018
 import Foundation
-
+import NFFontCompiler
 
 // Add tips!
 let simpletJSON: NFJSON = [
     
     "overview" : [
-        "name" : "Aramejski" as AnyObject,
+        "name" : "Simplet" as AnyObject,
         "fontKind" : "Natural Font" as AnyObject,
         "familyName" : "Simplet-Regular" as AnyObject,
         "author" : "Piotr Bitner" as AnyObject,

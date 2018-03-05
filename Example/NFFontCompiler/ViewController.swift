@@ -10,70 +10,56 @@ import UIKit
 import NFFontCompiler
 
 class ViewController: UIViewController {
- 
+    
     @IBOutlet weak var labelView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        /*
+        
+        
         let fontJSON = simpletJSON
         
-        if let fontData = NFSigns.parse(nfjson: simpletJSON) {
-            if fonts![fontName] == nil {
-                let font = NFSigns.parse(data: fontData)
-                if let compiledFont = compileFont(font: font) {
-                    let factory = NFSignsFactory(compiledFont: compiledFont)
-                    // let signs = NFSigns(font: font)
-                    fonts![fontName] = factory
+        var fontName: String = "Simplet"
+        
+        // compile
+        let doCompile =  true
+        let doRead = true
+        
+        if doCompile {
+            if let fontData = NFFontCompiler.parse(nfjson: fontJSON ) {
+                print("1 fontJSON parsed to font data")
+                let font = NFFontCompiler.parse(data: fontData)
+                print("2 font data parsed to font")
+                fontName = fontData.overview.name
+                
+                let compiler = NFFontCompiler(font:font)
+                compiler.compile()
+                if let compiledFont = compiler.compliedFont {
+                    print("3 font compiled")
+                    let fontFile = NFCompiledFontFile(compiledFont: compiledFont)
+                    // save
+                    fontFile.save()
+                    print("4 font saved")
                 }
             }
         }
-       */
-    }
-    
-    func saveRead(compiledFont: NFCompiledFont) -> NFCompiledFont{
         
-        let fontFile = NFCompiledFontFile(compiledFont: compiledFont)
         
-        fontFile.save()
-        
-        let fontFromFile = NFCompiledFontFile.read(fontName: "Aramejski")!
-        
-        let overview = fontFromFile.overview
-        
-        let name = overview?.name
-        
-        print(name!)
-        
-        return fontFromFile
-    }
-    
-    func getFont(fontName: String) -> NFCompiledFont? {
-        var compiledFont: NFCompiledFont?
-        
-        if let fontFromFile = NFCompiledFontFile.read(fontName: fontName) {
-            compiledFont = fontFromFile
-        } else {
-            let sFactory = nfFontManager.addFont(fontName: "Aramejski")!
-            let fontFile = NFCompiledFontFile(compiledFont: sFactory.compiledFont)
-            fontFile.save()
-            
-            compiledFont = sFactory.compiledFont
+        // read
+        if doRead {
+            if let fontFromFile = NFCompiledFontFile.read(fontName: fontName) {
+                print("\n font \(fontName) read")
+            }
         }
-        
-        return compiledFont
+    
     }
     
-    //protocol NFSignDelegate
-    func done() {
-        print("scribing done")
-    }
- 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
